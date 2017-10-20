@@ -1,3 +1,4 @@
+#@IgnoreInspection BashAddShebang
 #
 # Executes commands at the start of an interactive session.
 #
@@ -11,3 +12,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export GOPATH=${HOME}/Develop/work/go-dev
+export PATH=${PATH}:${GOPATH}/bin
+
+AWSFUNCTIONS="${HOME}/Develop/work/aws-utils-scripts/awsFunctions.sh"
+
+if [[ -s ${AWSFUNCTIONS} ]]; then
+  source ${AWSFUNCTIONS}
+fi
+export AWS_ROLE=devops-admin
