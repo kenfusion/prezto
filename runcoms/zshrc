@@ -21,3 +21,4 @@ if [[ -s ${AWSFUNCTIONS} ]]; then
   source ${AWSFUNCTIONS}
 fi
 export AWS_ROLE=devops-admin
+alias tmake="time gmake"
