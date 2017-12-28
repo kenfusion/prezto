@@ -12,17 +12,46 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# add gopath
 export GOPATH=${HOME}/Develop/work/go-dev
 export PATH=${PATH}:${GOPATH}/bin
 
+# declare AWS role
+export AWS_ROLE=devops-admin
+
+# source AWS functions
 AWSFUNCTIONS="${HOME}/Develop/work/aws-utils-scripts/awsFunctions.sh"
 
 if [[ -s ${AWSFUNCTIONS} ]]; then
   source ${AWSFUNCTIONS}
 fi
-export AWS_ROLE=devops-admin
+
+# add iterm2 shell integration
+ITERM2_SHELL_INTEGRATION="${HOME}/.iterm2_shell_integration.zsh"
+
+if [[ -s ${ITERM2_SHELL_INTEGRATION} ]]; then
+  source ${ITERM2_SHELL_INTEGRATION}
+fi
+
+
+# add minikube completion
+if (( $+commands[minikube] )); then
+  source <(minikube completion zsh)
+fi
+
+# add helm completion
+if (( $+commands[helm] )); then
+  source <(helm completion zsh)
+fi
+
+
+# add other completions
+COMPLETION="${HOME}/.zsh/completion/"
+if [[ -d ${COMPLETION} ]]; then
+  fpath=(${COMPLETION} ${fpath})
+  autoload -Uz compinit && compinit -i
+fi
+
+# add tmake function
 tmake () {time gmake $1}
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-which minikube > /dev/null 2>&1 && source <(minikube completion zsh)
