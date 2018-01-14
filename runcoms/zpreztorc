@@ -38,7 +38,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'python' \
   'prompt' \
   'SSH'
 
@@ -139,10 +138,10 @@ zstyle ':prezto:module:prompt' theme 'agnoster'
 #
 
 # Auto switch the Python virtualenv on directory change.
-zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
+#zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 
 # Automatically initialize virtualenvwrapper if pre-requisites are met.
-zstyle ':prezto:module:python:virtualenv' initialize 'yes'
+#zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 
 #
 # Screen

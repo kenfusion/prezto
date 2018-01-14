@@ -6,11 +6,17 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Set DEFAULT_USER for agnoster prompt
-export DEFAULT_USER=$(whoami)
-eval "$(/usr/local/bin/pyenv init -)"
-
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# Set DEFAULT_USER for agnoster prompt
+export DEFAULT_USER=$(whoami)
+
+# Set up pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
