@@ -13,10 +13,3 @@ fi
 
 # Set DEFAULT_USER for agnoster prompt
 export DEFAULT_USER=$(whoami)
-
-# Set up pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
