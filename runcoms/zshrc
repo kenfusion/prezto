@@ -18,13 +18,14 @@ export GOPATH=${HOME}/Develop/work/go-dev
 export PATH=${PATH}:${GOPATH}/bin
 
 
-# Set up pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+## Set up pyenv
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
+export PIP_REQUIRE_VIRTUALENV=true
 
 # declare AWS role
 export AWS_ROLE=devops-admin
