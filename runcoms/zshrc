@@ -13,6 +13,8 @@ fi
 
 # Customize to your needs...
 
+export VAULT_ADDR=https://vault.devops.discovery.com
+
 # add gopath
 export GOPATH=${HOME}/Develop/work/go-dev
 export PATH=${PATH}:${GOPATH}/bin
