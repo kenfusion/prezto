@@ -14,6 +14,7 @@ fi
 # Customize to your needs...
 
 export VAULT_ADDR=https://vault.devops.discovery.com
+export DISCOCLI_CLOBBER=true
 
 # add gopath
 export GOPATH=${HOME}/Develop/work/go-dev
