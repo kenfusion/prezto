@@ -74,3 +74,7 @@ fi
 
 # add tmake function
 tmake () {time gmake $1}
+
+# aliases
+alias pbc='cat ~/.btp | pbcopy'
+alias pbp='pbpaste >| ~/.btp'
