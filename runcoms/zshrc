@@ -13,7 +13,7 @@ fi
 
 # Customize to your needs...
 
-export VAULT_ADDR=https://vault.devops.discovery.com
+export VAULT_ADDR=https://vault.infra.discovery.com
 export DISCOCLI_CLOBBER=true
 
 # add gopath
@@ -31,7 +31,7 @@ export PATH=${PATH}:${GOPATH}/bin
 export PIP_REQUIRE_VIRTUALENV=true
 
 # declare AWS role
-export AWS_ROLE=devops-admin
+export AWS_ROLE=infra-admin
 
 # source functions
 AWSFUNCTIONS="${HOME}/Develop/work/aws-utils-scripts/awsFunctions.sh"
@@ -78,3 +78,10 @@ tmake () {time gmake $1}
 # aliases
 alias pbc='cat ~/.btp | pbcopy'
 alias pbp='pbpaste >| ~/.btp'
+alias gimme-aws-creds="docker run -it --rm \
+  -v ~/.aws/credentials:/root/.aws/credentials \
+  -v ~/.okta_aws_login_config:/root/.okta_aws_login_config \
+  gimme-aws-creds"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
