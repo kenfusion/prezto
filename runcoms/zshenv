@@ -12,4 +12,9 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
 fi
 
 # Set DEFAULT_USER for agnoster prompt
-export DEFAULT_USER=$(whoami)
+DEFAULT_USER=$(whoami)
+
+# history settings
+HISTSIZE=99999
+HISTFILESIZE=999999
+SAVEHIST=$HISTSIZE
